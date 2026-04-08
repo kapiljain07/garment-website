@@ -18,15 +18,13 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b bg-white/90 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 text-white">
-            MC
-          </div>
+        <NavLink to="/" className="flex items-center gap-3">
+          <img src="/logo.png" alt="Minakshi Creation" className="h-10 w-10 rounded-xl object-cover" />
           <div className="leading-tight">
             <div className="text-sm font-semibold text-slate-900">Minakshi Creation</div>
             <div className="text-xs text-slate-600">Garment Manufacturer</div>
           </div>
-        </div>
+        </NavLink>
 
         <nav className="hidden items-center gap-6 md:flex">
           {links.map((item) => (
