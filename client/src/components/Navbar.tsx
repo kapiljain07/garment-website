@@ -41,17 +41,6 @@ export default function Navbar() {
               {item.label}
             </NavLink>
           ))}
-          <NavLink
-            to="/admin"
-            className={({ isActive }) =>
-              [
-                'text-sm font-semibold transition-colors',
-                isActive ? 'text-slate-900' : 'text-slate-700 hover:text-slate-900'
-              ].join(' ')
-            }
-          >
-            Admin
-          </NavLink>
         </nav>
 
         <button
@@ -82,18 +71,6 @@ export default function Navbar() {
                   {item.label}
                 </NavLink>
               ))}
-              <NavLink
-                to="/admin"
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  [
-                    'rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
-                    isActive ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-100'
-                  ].join(' ')
-                }
-              >
-                Admin
-              </NavLink>
             </div>
           </div>
         </div>
