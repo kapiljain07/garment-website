@@ -68,11 +68,7 @@ export default function AdminPanel() {
   const canUpload = useMemo(() => Boolean(imageFile), [imageFile])
 
   useEffect(() => {
-    const existing = localStorage.getItem('admin_token')
-    if (existing) {
-      setToken(existing)
-      setTokenApplied(existing)
-    }
+    localStorage.removeItem('admin_token')
   }, [])
 
   useEffect(() => {
@@ -181,7 +177,6 @@ export default function AdminPanel() {
                   type="button"
                   onClick={() => {
                     if (!token.trim()) return
-                    localStorage.setItem('admin_token', token.trim())
                     setTokenApplied(token.trim())
                   }}
                   className="rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700"
