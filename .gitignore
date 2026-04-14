@@ -22,6 +22,9 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Other projects in parent directory
+autobody-frontend/
+
 # Uploads (local dev only)
 server/uploads/*
 !server/uploads/.gitkeep
