@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  /* Neutrals */
+  --color-ink: #0E1115;
+  --color-slate: #2B3138;
+  --color-slate-2: #3C434C;
+  --color-slate-soft: #6B7280;
+  --color-line: #D9D2C4;
+  --color-line-soft: #EDE5D5;
+
+  /* Paper / white */
+  --color-paper: #F5EFE4;
+  --color-paper-2: #EDE5D5;
+  --color-bone: #FAF7F2;
+  --color-white: #FFFFFF;
+
+  /* Kraft browns */
+  --color-kraft: #B08968;
+  --color-kraft-2: #8B6F4E;
+  --color-kraft-deep: #6A5033;
+  --color-kraft-dark: #3E2F1C;
+
+  /* Accents */
+  --color-forest: #2F5D3B;
+  --color-forest-2: #1F4228;
+  --color-amber: #B45309;
+  --color-amber-2: #8F3E06;
+
+  /* Typography */
+  --font-display: 'Fraunces', 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-bone);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01', 'cv01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--color-ink);
+    background: var(--color-bone);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    font-optical-sizing: auto;
+  }
+
+  /* Kraft paper texture overlay available as a utility */
+  .kraft-grain {
+    position: relative;
+  }
+  .kraft-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.2  0 0 0 0 0.15  0 0 0 0 0.1  0 0 0 0.22 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+  }
+
+  .corrugation {
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        rgba(62, 47, 28, 0.05) 0px,
+        rgba(62, 47, 28, 0.05) 1px,
+        transparent 1px,
+        transparent 6px,
+        rgba(62, 47, 28, 0.08) 6px,
+        rgba(62, 47, 28, 0.08) 7px,
+        transparent 7px,
+        transparent 12px
+      );
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  ::selection {
+    background: var(--color-kraft);
+    color: var(--color-bone);
+  }
+
+  /* Form controls */
+  input, select, textarea {
+    font-family: inherit;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+  }
+
+  /* Thin scrollbar on desktop */
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--color-paper-2);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-kraft-2);
+      border: 2px solid var(--color-paper-2);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-kraft-deep);
+    }
+  }
+}
+
+@layer utilities {
+  .display-xl {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+  }
+
+  .rule {
+    border-top: 1px solid var(--color-line);
+  }
+
+  .rule-strong {
+    border-top: 1px solid var(--color-slate);
+  }
+
+  .hairline {
+    border: 1px solid var(--color-line);
+  }
+}

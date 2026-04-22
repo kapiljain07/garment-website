@@ -1,12 +1,21 @@
 [build]
-  base = "client"
-  publish = "dist"
   command = "npm run build"
-
-[build.environment]
-  NODE_VERSION = "20"
+  publish = "dist"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Enable Netlify's built-in prerendering for search engine bots.
+# When a bot (Googlebot, Bingbot, etc.) requests a page, Netlify
+# serves a fully rendered HTML snapshot instead of the SPA shell.
+# Activate via: Netlify Dashboard > Site settings > Build & deploy > Prerendering
+# Or install the @netlify/plugin-prerender package.

@@ -1,24 +1,22 @@
 {
-  "name": "garment-server",
-  "private": true,
+  "name": "digital-solutions-server",
   "version": "1.0.0",
-  "type": "module",
+  "description": "Backend API for Digital Solutions Expert website",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.48.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "express-validator": "^7.2.0",
-    "helmet": "^7.1.0",
-    "morgan": "^1.10.0",
-    "multer": "^1.4.5-lts.1"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "nodemailer": "^6.9.16",
+    "express-rate-limit": "^7.5.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.9"
   }
 }
-
